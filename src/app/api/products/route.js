@@ -15,7 +15,7 @@ export const GET = async (req) => {
     const goldData = await fetch("https://www.goldapi.io/api/XAU/USD", requestOptions);
     const _goldData = await goldData.json();
 
-    const goldPrice = _goldData.price_gram_24k;
+    const goldPrice = _goldData.price_gram_24k ?? 100;
 
     const _products = products.map((v) => {
         v.price = (v.popularityScore + 1) * v.weight * goldPrice;

@@ -9,7 +9,7 @@ export const GET = (req) => {
     const min_score = Number(searchParams.get('min_score') ?? 0)
     const max_score = Number(searchParams.get('max_score') ?? Infinity)
 
-
+    console.log(max_price);
 
 
     const goldPrice = 100;

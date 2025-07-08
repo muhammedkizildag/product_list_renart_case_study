@@ -6,7 +6,7 @@ import { avenirFont } from "./font";
 
 const Home = async () => {
 
-  
+  const products =  await fetch('https://product-list-renart-case-study-3vfrm5xif.vercel.app/api/products');
 
 
   const _products = await products.json();

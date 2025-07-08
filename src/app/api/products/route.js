@@ -1,33 +1,28 @@
 
 import products from '@/database/products.json'
 
-export const GET = (req) => {
-    const { searchParams } = req.nextUrl;
+export const GET = async (req) => {
+    let myHeaders = new Headers();
+    myHeaders.append("x-access-token", "goldapi-1jlsbk17mcu85ock-io");
+    myHeaders.append("Content-Type", "application/json");
 
-    const min_price = Number(searchParams.get('min_price') ?? 0)
-    const max_price = Number(searchParams.get('max_price') ?? Infinity)
-    const min_score = Number(searchParams.get('min_score') ?? 0)
-    const max_score = Number(searchParams.get('max_score') ?? Infinity)
+    let requestOptions = {
+        method: 'GET',
+        headers: myHeaders,
+        redirect: 'follow'
+    };
 
-    console.log(max_price);
+    const goldData = await fetch("https://www.goldapi.io/api/XAU/USD", requestOptions);
+    const _goldData = await goldData.json();
 
-
-    const goldPrice = 100;
+    const goldPrice = _goldData.price_gram_24k;
 
     const _products = products.map((v) => {
         v.price = (v.popularityScore + 1) * v.weight * goldPrice;
         return v;
     })
 
-    const _products_ = _products.filter((v) => {
-    return (
-      v.price >= min_price &&
-      v.price <= max_price &&
-      v.popularityScore >= min_score &&
-      v.popularityScore <= max_score
-    )
-  })
 
 
-    return Response.json(_products_);
+    return Response.json(_products);
 }

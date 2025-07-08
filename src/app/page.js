@@ -1,3 +1,4 @@
+
 import Carousel from "@/component/carousel";
 import { avenirFont } from "./font";
 
@@ -5,7 +6,7 @@ import { avenirFont } from "./font";
 
 const Home = async () => {
 
-  const products = await fetch('http://localhost:3000/api/products');
+  const products = await fetch('https://product-list-renart-case-study-fqp308gyj.vercel.app/api/products');
 
 
   const _products = await products.json();

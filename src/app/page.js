@@ -1,4 +1,4 @@
-export const dynamic = "force-dynamic";
+
 import Carousel from "@/component/carousel";
 import { avenirFont } from "./font";
 

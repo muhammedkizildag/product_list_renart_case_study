@@ -11,6 +11,7 @@ const Home = async () => {
 
   const _products = await products.json();
 
+
   return (
     <div className="flex justify-center items-center h-screen flex-col w-full">
       <div className={`${avenirFont.className} text-[45px]`}>Product List</div>

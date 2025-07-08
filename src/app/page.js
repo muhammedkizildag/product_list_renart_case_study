@@ -13,7 +13,7 @@ const Home = async () => {
   
   return (
     <div className="flex justify-center items-center h-screen flex-col w-full">
-      <div className={`${avenirFont.className} text-[45px]`}>Product List</div>
+      <div className={`${avenirFont.className} text-[45px] mb-16`}>Product List</div>
       <Carousel products={_products}></Carousel>
     </div>
   );
